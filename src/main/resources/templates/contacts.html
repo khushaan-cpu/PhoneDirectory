@@ -1,0 +1,25 @@
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>Phone Directory</title>
+</head>
+
+<header th:replace="layout :: logged-in"></header>
+
+<body>
+<h1>Contacts :</h1>
+<main id="contacts">
+    <contact th:each="p : ${contacts}">
+        <h2 th:text="${p.name}"></h2>
+        <h4 th:text="${p.phone}"></h4>
+        <h4 th:text="${p.email}"></h4>
+        <div>
+            <form th:action="@{/deleteContact(contactId=${p.id})}" th:method="delete">
+                <input type="submit" value="Delete" />
+            </form>
+        </div>
+    </contact>
+</main>
+</body>
+
+</html>

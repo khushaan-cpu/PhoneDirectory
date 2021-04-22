@@ -1,0 +1,31 @@
+<!Doctype html>
+
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>Phone Directory</title>
+</head>
+
+<header th:replace="layout :: logged-in"></header>
+
+<body>
+<h1>Create New Contact</h1>
+
+<form method="post" th:object="${contact}" th:action="@{/contacts/create}">
+    <div>Name:</div>
+    <div><input type="text" id="name" name="name" /></div>
+
+    <div>Phone Number:</div>
+    <div><input type="text" id="phone" name="phone" /></div>
+
+    <div>Email:</div>
+    <div><input type="text" id="email" name="email" /></div>
+
+    <div>
+        <input type="submit" value="Submit" />
+    </div>
+</form>
+
+</body>
+
+</html>

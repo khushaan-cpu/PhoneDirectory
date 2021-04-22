@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>Phone Directory</title>
+</head>
+
+<body>
+<header th:fragment="logged-out" th:remove="tag">
+    <header>
+        <a href="users/login.html" th:href="@{/users/login}">Login</a>
+        <a href="users/register.html" th:href="@{/users/registration}">Register</a>
+    </header>
+</header>
+
+<header th:fragment="logged-in" th:remove="tag">
+    <header>
+        <b>Logged in as:</b>
+        <label th:text="${session.loggeduser.username}"></label> |
+        <a href="contacts/create.html" th:href="@{/contacts/newcontact}">Add Contact</a>
+        <form method="post" th:action="@{/users/logout}">
+            <input type="submit" value="Logout" />
+        </form>
+    </header>
+</header>
+</body>
+
+</html>
